@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.cafeboard.board.dao.BoardDao;
 import com.gura.cafeboard.board.dto.BoardDto;
@@ -16,32 +17,41 @@ public class BoardServiceImpl implements BoardService{
 	
 	@Override
 	public void insert(BoardDto dto) {
-		// TODO Auto-generated method stub
-		
+		boardDao.insert(dto);
 	}
 
 	@Override
 	public void delete(int num) {
-		// TODO Auto-generated method stub
-		
+		boardDao.delete(num);
 	}
 
 	@Override
 	public void update(BoardDto dto) {
-		// TODO Auto-generated method stub
-		
+		boardDao.update(dto);
 	}
 
 	@Override
-	public List<BoardDto> getList() {
-		// TODO Auto-generated method stub
-		return null;
+	public ModelAndView getList() {
+		List<BoardDto> list = boardDao.getList();
+		
+		ModelAndView mView = new ModelAndView();
+		
+		mView.addObject("list",list);
+		
+		return mView;
 	}
 
 	@Override
 	public BoardDto getData(int num) {
-		// TODO Auto-generated method stub
-		return null;
+		BoardDto dto =boardDao.getData(num);
+		
+		return dto;
+	}
+
+	@Override
+	public void increaseViewCount(int num) {
+		boardDao.increaseViewCount(num);
+		
 	}
 	
 }

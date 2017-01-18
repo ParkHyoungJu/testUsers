@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>views/cafe/detail.jsp</title>
-<script src="${pageContext.request.contextPath }/resource/js/jquery-3.1.1.js"></script>
+<script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
 <style>
 	.content{ 
 		border: 1px solid blue;

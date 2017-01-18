@@ -16,32 +16,38 @@ public class BoardDaoImpl implements BoardDao{
 	
 	@Override
 	public void insert(BoardDto dto) {
-		// TODO Auto-generated method stub
-		
+		session.insert("board.insert",dto);
 	}
 
 	@Override
 	public void delete(int num) {
-		// TODO Auto-generated method stub
+		session.delete("board.delete",num);
 		
 	}
 
 	@Override
 	public void update(BoardDto dto) {
-		// TODO Auto-generated method stub
-		
+		session.update("board.update",dto);
 	}
 
 	@Override
 	public List<BoardDto> getList() {
-		// TODO Auto-generated method stub
-		return null;
+		List<BoardDto> list = session.selectList("board.getList");
+		
+		return list;
 	}
 
 	@Override
 	public BoardDto getData(int num) {
-		// TODO Auto-generated method stub
-		return null;
+		BoardDto dto = session.selectOne("board.getData", num);
+		
+		return dto;
+	}
+
+	@Override
+	public void increaseViewCount(int num) {
+		session.update("board.increaseViewCount",num);
+		
 	}
 
 }

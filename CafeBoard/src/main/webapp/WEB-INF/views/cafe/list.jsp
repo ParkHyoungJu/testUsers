@@ -9,7 +9,9 @@
 </head>
 <body>
 <h3>카페 글 목록입니다.</h3>
-<a href="private/insertform.do">새글쓰기</a>
+<c:if test="${not empty id }">
+		<a href="private/insertform.do">새글쓰기</a>
+</c:if>
 <table>
 	<thead>
 		<tr>
